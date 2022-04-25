@@ -144,6 +144,7 @@ class TwoCaptchaClient {
      * @param  {Object} options             Parameters for the request
      * @param  {string} options.googlekey   The google key from the ReCaptcha
      * @param  {string} options.pageurl     The URL where the ReCaptcha is
+     * @param  {string} options.minScore    Minimum score the customer needs: 0.1, 0.3 and 0.9
      * @param  {string} options.action      Action value for ReCaptcha
      * @param  {boolean} options.enterprise Enterprise ReCaptcha switch
      * @return {Promise<Captcha>}           Promise for a Captcha object
@@ -159,6 +160,7 @@ class TwoCaptchaClient {
       googlekey: options.googlekey,
       pageurl: options.pageurl,
       version: 'v3',
+      min_score: options.minScore ? options.minScore : '0.3',
       action: options.action ? options.action : '',
       enterprise: options.enterprise ? 1 : 0,
     };
